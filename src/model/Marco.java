@@ -38,8 +38,6 @@ public class Marco extends Agent {
 		}
 	}
 	
-	
-	
 	public float getPosX() {
 		return posX;
 	}

@@ -48,7 +48,6 @@ public class Polo extends Agent {
 		if(random2 % random3 == 0) {
 			dirY *= -1;
 		}
-		
 	}
 	
 	public float getPosX() {

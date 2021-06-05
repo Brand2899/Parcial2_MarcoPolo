@@ -32,19 +32,24 @@ public class World {
 		return marco;
 	}
 	
+	@SuppressWarnings("static-access")
 	public void draw() {
 		for(int i = 0; i < polos.size(); i++) {
 			polos.get(i).draw();
 		}
 		
 		marco.draw();
+		
+		if(app.second() % 2 == 0) {
+			for(int i = 0; i < polos.size(); i++) {
+				new Thread(polos.get(i)).start();
+			}
+			new Thread(marco).start();
+		}
+		
+		
 		chase();
 		displayMessage();
-		
-		for(int i = 0; i < polos.size(); i++) {
-			new Thread(polos.get(i)).start();
-		}
-		new Thread(marco).start();
 	}
 	
 	public void createPolos() {
@@ -97,8 +102,6 @@ public class World {
 				marco.setDirX(1);
 				marco.setDirY(1);	
 			}
-			
-			
 			
 			else if(polos.get(arrayPos).getPosX() == marco.getPosX() && polos.get(arrayPos).getPosY() > marco.getPosY()) {
 				marco.setDirX(0);
@@ -169,6 +172,5 @@ public class World {
 				e.getLocalizedMessage();
 			}
 		}
-		
 	}
 }
