@@ -146,10 +146,7 @@ public class World {
 	public void displayMessage() {
 		
 		if(app.second() % 2 == 0) {
-			if(polos.size() != 0) {
-				int posx = (int) marco.getPosX();
-				int posy = (int) marco.getPosY();
-				
+			if(polos.size() != 0) {	
 				app.fill(0);
 				app.textAlign(app.CENTER);
 				app.text("Marco!", marco.getPosX(), marco.getPosY() - 15);
