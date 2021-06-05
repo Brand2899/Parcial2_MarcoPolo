@@ -16,4 +16,8 @@ public class Controller {
 	public void draw() {
 		w.draw();
 	}
+
+	public PApplet getApp() {
+		return app;
+	}
 }
