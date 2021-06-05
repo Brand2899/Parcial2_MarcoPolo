@@ -131,6 +131,10 @@ public class World {
 		if(polos.size() == 0) {
 			marco.setDirX(0);
 			marco.setDirY(0);
+			
+			app.fill(0);
+			app.textAlign(app.CENTER);
+			app.text("Gané!", marco.getPosX(), marco.getPosY() - 15);
 		}
 		
 		//System.out.println(shortestDis);
@@ -148,9 +152,7 @@ public class World {
 				
 				app.fill(0);
 				app.textAlign(app.CENTER);
-				app.text("Marco", marco.getPosX(), marco.getPosY() - 15);
-				app.text(posx, marco.getPosX(), marco.getPosY() + 20);
-				app.text(posy, marco.getPosX(), marco.getPosY() + 30);
+				app.text("Marco!", marco.getPosX(), marco.getPosY() - 15);
 			}
 		}
 		
@@ -161,11 +163,11 @@ public class World {
 					int posx = (int) polos.get(i).getPosX();
 					int posy = (int) polos.get(i).getPosY();
 					
-					app.fill(0);
+					app.fill(100);
 					app.textAlign(app.CENTER);
-					app.text("Polo", polos.get(i).getPosX(), polos.get(i).getPosY() - 15);
-					app.text(posx, polos.get(i).getPosX(), polos.get(i).getPosY() + 20);
-					app.text(posy, polos.get(i).getPosX(), polos.get(i).getPosY() + 30);
+					app.text("Polo!", polos.get(i).getPosX(), polos.get(i).getPosY() - 15);
+					app.text("x:" + posx, polos.get(i).getPosX(), polos.get(i).getPosY() + 20);
+					app.text("y:" + posy, polos.get(i).getPosX(), polos.get(i).getPosY() + 30);
 				}
 			}
 			catch(IndexOutOfBoundsException e) {
