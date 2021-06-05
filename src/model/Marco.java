@@ -27,7 +27,6 @@ public class Marco extends Agent {
 	}
 	
 	public void move() {
-		posX += app.random(-2, 2);
-		posY += app.random(-2, 2);
+		
 	}
 }
