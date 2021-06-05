@@ -15,6 +15,7 @@ public class World {
 		this.app = app;
 		polos = new ArrayList<Polo>();
 		NUM_POLOS = (int) app.random(20, 50);
+		
 		createPolos();
 		createMarco();
 	}
@@ -38,6 +39,7 @@ public class World {
 		
 		marco.draw();
 		chase();
+		displayMessage();
 		
 		for(int i = 0; i < polos.size(); i++) {
 			new Thread(polos.get(i)).start();
@@ -128,7 +130,45 @@ public class World {
 			marco.setDirY(0);
 		}
 		
-		System.out.println(shortestDis);
-		System.out.println(arrayPos);
+		//System.out.println(shortestDis);
+		//System.out.println(arrayPos);
+	}
+	
+	
+	@SuppressWarnings("static-access")
+	public void displayMessage() {
+		
+		if(app.second() % 2 == 0) {
+			if(polos.size() != 0) {
+				int posx = (int) marco.getPosX();
+				int posy = (int) marco.getPosY();
+				
+				app.fill(0);
+				app.textAlign(app.CENTER);
+				app.text("Marco", marco.getPosX(), marco.getPosY() - 15);
+				app.text(posx, marco.getPosX(), marco.getPosY() + 20);
+				app.text(posy, marco.getPosX(), marco.getPosY() + 30);
+			}
+		}
+		
+		if(app.second() % 2 != 0) {
+			try {
+				for(int i = 0; i < polos.size(); i++) {
+					
+					int posx = (int) polos.get(i).getPosX();
+					int posy = (int) polos.get(i).getPosY();
+					
+					app.fill(0);
+					app.textAlign(app.CENTER);
+					app.text("Polo", polos.get(i).getPosX(), polos.get(i).getPosY() - 15);
+					app.text(posx, polos.get(i).getPosX(), polos.get(i).getPosY() + 20);
+					app.text(posy, polos.get(i).getPosX(), polos.get(i).getPosY() + 30);
+				}
+			}
+			catch(IndexOutOfBoundsException e) {
+				e.getLocalizedMessage();
+			}
+		}
+		
 	}
 }
