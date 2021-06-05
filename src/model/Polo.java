@@ -50,4 +50,20 @@ public class Polo extends Agent {
 		}
 		
 	}
+	
+	public float getPosX() {
+		return posX;
+	}
+	
+	public float getPosY() {
+		return posY;
+	}
+	
+	public int getDirX() {
+		return dirX;
+	}
+	
+	public int getDirY() {
+		return dirY;
+	}
 }
