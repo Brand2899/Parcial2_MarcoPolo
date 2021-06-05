@@ -9,10 +9,12 @@ public class World {
 	private PApplet app;
 	private ArrayList<Polo> polos;
 	private Marco marco;
+	private final int NUM_POLOS;
 	
 	public World(PApplet app) {
 		this.app = app;
 		polos = new ArrayList<Polo>();
+		NUM_POLOS = (int) app.random(20, 50);
 		createPolos();
 		createMarco();
 	}
@@ -44,7 +46,7 @@ public class World {
 	}
 	
 	public void createPolos() {
-		for(int i = 0; i < 20; i++) {
+		for(int i = 0; i < NUM_POLOS; i++) {
 			float posX = app.random(20, 480);
 			float posY = app.random(20, 480);
 			
